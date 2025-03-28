@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, Calendar, Home, Menu, Search, User } from 'lucide-react';
+import { Bell, Calendar, Home, Menu, Moon, Search, Sun, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -10,12 +10,40 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Initialize dark mode based on user preference or system preference
+  useEffect(() => {
+    const isDark = localStorage.getItem('darkMode') === 'true' || 
+      (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    setIsDarkMode(isDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  // Handle dark mode toggle
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', String(newDarkMode));
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-16 items-center px-4 md:px-6">
         <div className="flex items-center gap-2 md:gap-4">
           <Button variant="outline" size="icon" className="md:hidden">
@@ -24,14 +52,14 @@ const Navbar = () => {
           </Button>
           <div className="flex items-center gap-2" onClick={() => navigate('/')} role="button">
             <div className="hidden md:flex">
-              <div className="bg-campus-blue text-white font-bold p-2 rounded">
-                Campus
+              <div className="bg-primary text-white font-bold p-2 rounded-l-md">
+                Uni
               </div>
-              <div className="bg-campus-gold text-campus-blue font-bold p-2 rounded">
-                Events
+              <div className="bg-accent text-white font-bold p-2 rounded-r-md">
+                Sync
               </div>
             </div>
-            <span className="md:hidden font-bold text-xl text-campus-blue">CE</span>
+            <span className="md:hidden font-bold text-xl gradient-text">US</span>
           </div>
         </div>
         <div className="ml-auto flex items-center gap-2">
@@ -70,6 +98,16 @@ const Navbar = () => {
             >
               <Bell className="h-5 w-5" />
             </Button>
+            <div className="flex items-center mr-2">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={toggleDarkMode} 
+                aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
+            </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="rounded-full">

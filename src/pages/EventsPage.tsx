@@ -11,7 +11,10 @@ const EventsPage = () => {
       <Navbar />
       <main>
         <div className="campus-container pt-8">
-          <EventsList events={mockEvents} title="All Events" />
+          <h1 className="unisync-page-title mb-6">All Events</h1>
+          <div className="glass-panel p-6">
+            <EventsList events={mockEvents} title="Browse All Events" />
+          </div>
         </div>
       </main>
       <Footer />

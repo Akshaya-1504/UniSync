@@ -11,7 +11,10 @@ const CalendarPage = () => {
       <Navbar />
       <main>
         <div className="campus-container pt-8">
-          <Calendar events={mockEvents} />
+          <h1 className="unisync-page-title mb-6">Event Calendar</h1>
+          <div className="glass-panel p-6">
+            <Calendar events={mockEvents} />
+          </div>
         </div>
       </main>
       <Footer />

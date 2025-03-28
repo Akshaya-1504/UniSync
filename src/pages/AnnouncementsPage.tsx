@@ -11,10 +11,13 @@ const AnnouncementsPage = () => {
       <Navbar />
       <main>
         <div className="campus-container pt-8">
-          <AnnouncementsList 
-            announcements={mockAnnouncements} 
-            title="All Announcements" 
-          />
+          <h1 className="unisync-page-title mb-6">All Announcements</h1>
+          <div className="glass-panel p-6">
+            <AnnouncementsList 
+              announcements={mockAnnouncements} 
+              title="Browse All Announcements" 
+            />
+          </div>
         </div>
       </main>
       <Footer />

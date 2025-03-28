@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 260 25% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -14,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 217 80% 25%;
+    --primary: 265 70% 60%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 47 100% 50%;
+    --secondary: 250 95% 76%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 65% 55%;
+    --accent: 270 65% 55%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,39 +31,39 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 217 80% 25%;
+    --ring: 265 70% 60%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 240 10% 5%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 240 10% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 240 10% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 60% 35%;
+    --primary: 265 70% 60%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 47 80% 45%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 250 95% 65%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 260 20% 15%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 210 65% 45%;
+    --accent: 270 65% 45%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 260 15% 20%;
+    --input: 260 15% 20%;
+    --ring: 265 70% 60%;
   }
 }
 
@@ -81,7 +81,7 @@
   }
 
   .calendar-day.has-events {
-    @apply bg-accent/10 font-medium text-accent-foreground;
+    @apply bg-primary/10 font-medium text-accent-foreground;
   }
 
   .category-badge {
@@ -90,5 +90,25 @@
 
   .campus-container {
     @apply container py-6 px-4 md:px-8 max-w-7xl mx-auto;
+  }
+
+  .glass-panel {
+    @apply bg-background/50 backdrop-blur-md border border-border/50 rounded-lg shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg shadow-md hover:shadow-lg transition-all;
+  }
+
+  .gradient-purple {
+    @apply bg-gradient-to-r from-primary/80 to-accent/80;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .unisync-page-title {
+    @apply text-3xl md:text-4xl font-bold gradient-text;
   }
 }
