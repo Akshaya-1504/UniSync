@@ -59,6 +59,15 @@ export default {
 					lightBlue: '#4D92D3',
 					gray: '#F5F5F5',
 					darkGray: '#2D2D2D'
+				},
+				unisync: {
+					purple: '#8B5CF6', // More vibrant purple
+					darkPurple: '#6D28D9', // Deeper purple for contrast
+					deepPurple: '#4C1D95', // Very deep purple
+					lightPurple: '#C4B5FD', // Lighter purple
+					gold: '#FBBF24', // Warm gold/yellow
+					yellow: '#FFD700', // Bright yellow
+					amber: '#F59E0B', // Amber for contrast
 				}
 			},
 			borderRadius: {

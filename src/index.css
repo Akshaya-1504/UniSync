@@ -81,7 +81,7 @@
   }
 
   .calendar-day.has-events {
-    @apply bg-primary/10 font-medium text-accent-foreground;
+    @apply bg-unisync-purple/20 font-medium text-unisync-purple dark:text-unisync-lightPurple;
   }
 
   .category-badge {
@@ -93,7 +93,7 @@
   }
 
   .glass-panel {
-    @apply bg-background/50 backdrop-blur-md border border-border/50 rounded-lg shadow-lg;
+    @apply bg-background/50 backdrop-blur-md border border-unisync-lightPurple/30 rounded-lg shadow-lg;
   }
 
   .glass-card {
@@ -101,14 +101,26 @@
   }
 
   .gradient-purple {
-    @apply bg-gradient-to-r from-primary/80 to-accent/80;
+    @apply bg-gradient-to-r from-unisync-purple to-unisync-darkPurple;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-unisync-purple to-unisync-darkPurple bg-clip-text text-transparent;
+  }
+
+  .gold-gradient-text {
+    @apply bg-gradient-to-r from-unisync-gold to-unisync-amber bg-clip-text text-transparent;
   }
 
   .unisync-page-title {
     @apply text-3xl md:text-4xl font-bold gradient-text;
+  }
+
+  .purple-glow {
+    @apply shadow-[0_0_15px_rgba(139,92,246,0.5)];
+  }
+
+  .gold-glow {
+    @apply shadow-[0_0_15px_rgba(251,191,36,0.5)];
   }
 }
